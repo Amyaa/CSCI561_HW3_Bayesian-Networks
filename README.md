@@ -3,10 +3,6 @@
 ### Input:
 - 1st line: two numbers (n and k) separated by a white space: the number of diseases and number of patients
 - Next 4*n lines: the details about the diseases and their findings/symptoms, 4 lines for each disease.
--- 1: the name of the disease (Cancer, Hepatitis, etc), its number of findings/symptoms (m) and the priori probability of the disease P(D)
--- 2: a python list of m finding/symptom names (distinct) for the disease.
--- 3: a python list of m elements giving the probability of the findings/symptoms to be present (true) if the disease is present.
--- 4: a python list of m elements giving the probability of the findings/symptoms to be present(true) if the disease is not present.
 - n*k lines: the inputs for various patients
 
 ### Output:
