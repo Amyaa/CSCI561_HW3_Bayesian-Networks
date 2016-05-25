@@ -51,19 +51,16 @@ for line in inputFile:
         elif count % 4 == 2:
             # The second line will contain a python list of m finding/symptom names for the disease
             l = eval(line.strip())
-            #findings[name] = l
             findings.append(l)
             count += 1 
         elif count % 4 == 3:
             # The third line will contain a python list of m elements giving the probability of the findings/symptoms to be present (true) if the disease is present
             l = eval(line.strip())
-            #p1[name] = l
             p1.append(l)
             count += 1 
         else:
             # The forth line will contain a python list of m elements giving the probability of the findings/symptoms to be present(true) if the disease is not present.
-            l = eval(line.strip())
-            #p2[name] = l 
+            l = eval(line.strip()) 
             p2.append(l)
             count += 1  
     elif count <= limit2:
@@ -86,7 +83,6 @@ def getProbability(disease, p, pf1, pf2):
         elif disease[i] == 'U':
             pass
     d2 = d21 + d22
-    #return float(("%.4f" % (d1 / d2))) #round(d1 / d2, 4)   # probability of the disease
     return float(d1 / d2)
 
 """Question-1:
@@ -107,7 +103,6 @@ def getPofD(patients, diseases):
             pf1 = p1[j] # list of probability of the finding present in disease
             pf2 = p2[j]
             disease = patient[j] # findings of symptoms of disease j existing in patient i
-            #rst[name] = getProbability(disease, p, pf1, pf2)
             rst[name] = ("%.4f" % getProbability(disease, p, pf1, pf2))
         result.append(rst)
     return result
@@ -159,7 +154,6 @@ def getMofD(patients, diseases):
             for m in range(len(cpt)):
                 assign = cpt[m]
                 tmp.append(getProbability(assign, p, pf1, pf2))
-            #rst[name] = [min(tmp), max(tmp)]  #[min, max]
             rst[name] = [("%.4f" % min(tmp)), ("%.4f" % max(tmp))]
         result.append(rst)
     return result
@@ -188,7 +182,6 @@ def getAlpha(idlist, sym):
     for i in idlist:
         d[sym[i]] = i
     dd = collections.OrderedDict(sorted(d.items()))
-    #print dd
     for key, value in dd.iteritems() :
         result.append(value)
     return result
@@ -219,19 +212,16 @@ def getMCrease(patients, diseases, findings):
                     symname = finding[unkown[k]]
                     # assign kth unkown symptom to true
                     nd1 = getValOfUn(disease, unkown[k], 'T') # new list of disease
-                    c1 = float(("%.4f" % (getProbability(nd1, p, pf1, pf2) - origin)))    
-                    #c1 = getProbability(nd1, p, pf1, pf2) - origin # increase or decrease
+                    c1 = float(("%.4f" % (getProbability(nd1, p, pf1, pf2) - origin))) 
                     change.append(c1)
                     sym.append(symname)
                     val.append('T')
                     # assign kth unkown symptom to false
                     nd2 = getValOfUn(disease, unkown[k], 'F')
-                    c2 = float(("%.4f" % (getProbability(nd2, p, pf1, pf2) - origin)))    #getProbability(nd1, p, pf1, pf2) - origin # increase or decrease        
-                    #c2 = getProbability(nd2, p, pf1, pf2) - origin
+                    c2 = float(("%.4f" % (getProbability(nd2, p, pf1, pf2) - origin))) 
                     change.append(c2)
                     sym.append(symname)
                     val.append('F')
-                #print change
                 max_inc = max(change)   # the biggest increase in the probability of the disease
                 max_dec = min(change)   # the biggest decrease in the probability for the disease
                 tmp = []
@@ -263,7 +253,6 @@ def getMCrease(patients, diseases, findings):
                     for x in idlist:
                         tmp.append(sym[x])
                         tmp.append(val[x])
-                #print tmp
                 rst[name] = tmp
         result.append(rst)
     return result
