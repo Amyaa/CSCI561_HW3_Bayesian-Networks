@@ -1,0 +1,6 @@
+1 1
+parkinson 5 0.13
+['normal expression', 'tremor', 'stiff limbs', 'normal walk', 'able to regain balance']
+[0.31, 0.88, 0.74, 0.88, 0.29]
+[0.76, 0.08, 0.32, 0.08, 0.74]
+['T', 'U', 'F', 'U', 'T']

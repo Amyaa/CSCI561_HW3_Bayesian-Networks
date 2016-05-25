@@ -1,0 +1,4 @@
+Patient-1:
+{'parkinson': '0.0091'}
+{'parkinson': ['0.0002', '0.5250']}
+{'parkinson': ['normal walk', 'T', 'tremor', 'T', 'normal walk', 'F', 'tremor', 'F']}
