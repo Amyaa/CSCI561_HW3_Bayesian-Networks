@@ -68,8 +68,8 @@ for line in inputFile:
 patients = getFofP(symptoms)
 
 def getProbability(disease, p, pf1, pf2):
-    d1 = p  # dividee
-    d21 = p  # divider
+    d1 = p
+    d21 = p
     d22 = 1 - p
     for i in range(len(disease)):
         if disease[i] == 'T':
